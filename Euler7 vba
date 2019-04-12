@@ -1,0 +1,54 @@
+'
+'10001 st prime
+
+'Problem 7
+'By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+'What is the 10 001st prime number?
+
+Sub euler7()
+
+
+    Dim numprimes, i As Integer
+    Dim v(10001) As Long
+    Dim l As Long
+    
+    numprimes = 2
+    
+    v(0) = 2
+    v(1) = 3
+    l = 4
+    Do While numprimes < 10001
+    
+        i = 0
+        Do While v(i) * v(i) <= l
+            If l Mod v(i) = 0 Then
+            'if it's divisible it's not prime start over
+                l = l + 1
+                i = -1
+            
+            'Else
+            
+              '  numprimes = numprimes + 1
+             '   v(numprimes) = l
+            End If
+            i = i + 1
+        Loop
+        'it's not divisible it's prime
+        v(numprimes) = l
+        numprimes = numprimes + 1
+  '      Range("a" & numprimes).Value = l
+        l = l + 1
+        
+    Loop
+    
+    
+    
+    
+    'cout<< v[10000];
+    MsgBox "The 10001th prime is " & v(10000)
+    'return 0;
+    
+
+
+End Sub
