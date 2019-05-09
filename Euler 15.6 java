@@ -1,0 +1,21 @@
+import java.math.BigInteger; 
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+       int size=20;
+       BigInteger [][] Array=new BigInteger [20][20];
+       for (int i=0;i<size;i++)
+       {  
+          Array[i][0]=BigInteger.valueOf(1);
+          Array[0][i]=BigInteger.valueOf(1);
+       }
+       for (int i=1;i<size;i++)
+       {
+    	  for (int j=1;j<size;j++)
+	      Array[i][j]=Array[i-1][j].add(Array[i][j-1]);
+       }
+
+       System.out.println(Array[size-1][size-1]);
+    }
+}
