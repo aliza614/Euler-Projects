@@ -1,0 +1,37 @@
+/*Lattice paths
+
+Problem 15
+Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
+
+
+How many such routes are there through a 20×20 grid?
+*/
+
+#include <iostream>
+using namespace std;
+
+	
+long paths(int a, int b, int direction);
+
+
+int main()
+{
+	
+	
+long answer=paths(20,20,0)+paths(20,20,1);
+cout<<to_string(answer);
+	return 0;
+}
+			
+	
+long paths(int a, int b, int direction)
+{	//go 0 is down go 1 is across direction 0 subtract 1 from down direction 1 subtract 1 from across
+	if (a==0) return 1;
+	if ( b==0) return 1;
+	if (direction==0) a--;
+	if (direction==1) b--;
+	long answer1 = paths( a,b, 0);
+	long answer2 = paths(a, b, 1);
+//if(a>18||b>18) cout<<"a="+to_string(a)+"b="+to_string(b)+"ans"+to_string(answer1+answer2)+"\n";
+	return answer1+answer2;
+}
