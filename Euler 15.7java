@@ -1,0 +1,21 @@
+import java.math.BigInteger; 
+import java.util.Scanner;
+public class MyClass {
+
+    public static void main (String args[])
+    {   
+        System.out.println(factorial(40).divide(factorial(20).multiply(factorial(20))));
+    }
+    public static BigInteger factorial(int a)
+	{   BigInteger c=BigInteger.valueOf(1);
+	    for (int i = 0; i < a; i++)
+		{
+			c = c .multiply(BigInteger.valueOf(a-i));
+		}
+		
+		return c;
+	}
+	
+
+
+}
