@@ -1,0 +1,46 @@
+/*
+
+
+Power digit sum
+
+Problem 16
+215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+
+What is the sum of the digits of the number 2^1000?
+*/
+
+
+
+
+import java.math.BigInteger;
+
+public class MyClass {
+    public static void main(String args[]) {
+        
+        BigInteger a= new BigInteger ("2");
+        BigInteger b=a.pow(10000);
+        System.out.println(b.toString());
+        BigInteger c= sumDigits(b.toString());
+        System.out.println(c.toString());
+    
+    }
+    public static BigInteger sumDigits(String in)
+    {
+        String s=in;
+        // answer
+        BigInteger answer= new BigInteger ("0");
+        //for each char in string
+        for (int i = 0; i<s.length();i++)
+        {
+           //add it to answer
+           Character ch= new Character(s.charAt(i));
+           //System.out.println(ch);
+         
+           BigInteger temp=new BigInteger (ch.toString());
+           //System.out.println(temp.toString());
+           answer=answer.add(temp);
+           //System.out.println(answer.toString());
+        }
+        return answer;
+    }
+}
