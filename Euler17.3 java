@@ -1,0 +1,71 @@
+/*
+
+Number letter counts
+
+Problem 17
+If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+
+If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
+
+
+NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
+
+*/
+
+
+import java.math.BigInteger;
+
+public class MyClass {
+    public static void main(String args[]) {
+        BigInteger ans=new BigInteger("0");
+        for ( int q=1; q<=1000;q++)
+            ans=ans.add(countChars(writeOut(q)));
+        System.out.println(ans.toString());
+    
+    }
+    public static String writeOut(int in)
+    {
+        String s=Integer.toString(in);
+        // answer
+        BigInteger answer= new BigInteger ("0");
+        //setup lookup tables
+        String look1[]={"zero", "one","two","three","four","five","six", "seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
+        String look20[]={"","", "twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
+         if (in<20) return look1[in];
+         if (in<100) 
+         {
+             int q1= Character.getNumericValue(s.charAt(0));
+             int q2 = Character.getNumericValue(s.charAt(1));
+             if (q2==0) return look20[q1];
+             return look20[q1]+look1[q2];
+
+          }
+          if (in<1000){
+          
+              //hundreds
+              int q1= Character.getNumericValue(s.charAt(0));
+              //tens
+              int q2= Character.getNumericValue(s.charAt(1));
+              // ones
+              int q3= Character.getNumericValue(s.charAt(2));
+              if (q2+q3==0) return look1[q1]+"hundred";
+              else if (q2<2) return look1[q1] +"hundredand"+look1[q2*10+q3];
+              else if (q3==0) return look1[q1]+"hundredand"+look20[q2];
+              else return look1[q1]+"hundredand"+look20[q2]+look1[q3];
+
+          }
+          if (in==1000) return "onethousand";
+    return "   ";
+    }
+    
+    public static BigInteger countChars (String s)
+    {
+     
+       //return answer
+    return BigInteger.valueOf(s.length());
+
+
+    }
+
+
+}
