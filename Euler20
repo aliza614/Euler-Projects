@@ -1,4 +1,7 @@
-public static void main(String []args){
+import java.math.BigInteger;
+public class MyClass{
+
+     public static void main(String []args){
          /*
          Factorial digit sum
 
@@ -10,12 +13,10 @@ public static void main(String []args){
 
         Find the sum of the digits in the number 100!
          */
-         
          BigInteger b;
-         b=factorial(BigInteger.valueOf(100));
-         
-     System.out.println(sumDigits(b.toString()));
-	}
+         b=factorial(BigInteger.valueOf(100)); 
+         System.out.println(sumDigits(b.toString()));
+    }
     public static int sumDigits (String x)
     {
         int l=x.length();
