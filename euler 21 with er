@@ -1,0 +1,50 @@
+import java.util.*;
+import java.math.BigInteger;
+public class MyClass{
+
+
+
+     public static void main(String []args){
+         /*
+         Amicable numbers
+
+            Problem 21
+            Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+            If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+
+            For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+            Evaluate the sum of all the amicable numbers under 10000.
+         */
+        
+         BigInteger ans=new BigInteger ("0");
+         int test;
+         for (int i=4;i<10000;i++)
+         {
+             
+             test=sumDivisors(divisors(i));
+             if (i==sumDivisors(divisors(test)) &&i<test ) ans.add(BigInteger.valueOf(i));
+         }
+        System.out.println(ans.toString());
+	
+         
+     }
+    public static int sumDivisors (Vector v)
+    {
+        int ans=0;
+        for (int i=0;i<v.capacity();i++)
+            ans+=(int) v.get(i);
+            
+        return ans;
+    }
+    public static Vector divisors (int x)
+    {
+        Vector v=new Vector ();
+        int index=0;
+        for ( int i=1; i<x;i++)
+        {   if (x%i==0) v.add(i);
+        }
+        return v;
+    }
+        
+}
