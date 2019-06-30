@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fmt"
+)
+func max(x, y uint64) uint64 {
+    if x < y {
+        return y
+    }
+    return x
+}
+
+func main() {
+
+/**********
+Largest palindrome product
+Problem 4
+
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+********************/
+var maxFactor uint64=0;
+var n1,n2,n,i uint64;
+for n1= 999; n1>100;n1--{
+
+  for n2=999; n2>100;n2--{
+     n=n1*n2; 
+     var strN string=string(n) ;
+     for i=uint64(len(strN)-1); i>uint64((len(strN)-1)/2);i-- {
+           if strN[i]!= strN[len(strN)-1-int(i)]{ goto Nextn;}
+           if  i==uint64((len(strN)-1)/2+1){ 
+            maxFactor=max(maxFactor,n);
+           };
+     //Next i
+      }
+  Nextn:
+  //Next n;
+  }
+}
+fmt.Println(maxFactor)
+}
