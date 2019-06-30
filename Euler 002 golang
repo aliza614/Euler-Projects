@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	var n1 uint64=1
+	var n2 uint64=1
+	var n uint64=1
+	var sum uint64=0
+
+  //While n less than 4000000
+  for n<4000000{
+    n= n1+n2;
+    n2=n1;
+    n1=n;
+    //If n is even sum=sum+n
+    if n%2==0 {
+        sum=sum+n;
+    }
+  }
+  fmt.Println(sum);
+  
+}
+  
+
