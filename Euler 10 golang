@@ -1,0 +1,52 @@
+package main
+
+import (
+	"fmt"
+)
+func max(x, y uint64) uint64 {
+    if x < y {
+        return y
+    }
+    return x
+}
+
+func main() {
+   /*
+
+Summation of primes
+
+Problem 10
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+
+*/
+
+	var numprimes int =1; 
+	var v[2000001] uint64
+	var answer, l uint64;
+	var i int;
+	v[0]=2;
+	
+	for  l=3;numprimes<10001;l++{
+	
+		for i=0; v[i]*v[i]<=l;i++{
+		
+			if l%v[i]==0 {
+			
+				l++;
+				i=-1;
+			}
+		}
+		v[numprimes]=l;
+		numprimes++;
+	
+	
+	}
+        answer=0;
+        for l=0; l<=2000000;l++{
+	    answer+=v[l];
+	}
+	fmt.Println( answer);	
+
+}
