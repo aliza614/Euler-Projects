@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+//euler 15
+const size int=20;
+var array [size][size] uint64;
+var i,j int
+for i=0;i<size;i++{
+ 
+  array[i][0]=1;
+  array[0][i]=1;
+}
+for i=1;i<size;i++{
+	for j=1;j<size;j++{
+	    array[i][j]=array[i-1][j]+array[i][j-1];
+        }
+}
+fmt.Println(array[size-1][size-1]);
+}
