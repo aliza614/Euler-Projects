@@ -1,0 +1,87 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+ /*  euler 19
+         You are given the following information, but you may prefer to do some research for yourself.
+
+        1 Jan 1900 was a Monday.
+        Thirty days has September,
+        April, June and November.
+        All the rest have thirty-one,
+        Saving February alone,
+        Which has twenty-eight, rain or shine.
+        And on leap years, twenty-nine.
+        A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+        How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+         
+         
+         */
+         
+         
+         /*long long count=1;
+         int year=1900
+         int month=0;
+         answer
+         count+=365;
+         */
+         var year int=1;
+         var month int=0;
+         var ans int=0;
+         var count uint64
+         for count =366; year<2001; {
+            //mondsay is day 1 so sunday is day 7 so if its divisible by 7 it's sunday
+            //check then increment
+            if count%7==0{ ans++;}
+            //add a month
+            
+            switch m:=month
+            { 
+                //add 31 for feb 1st
+                case m==0:
+                    count+=31;
+                //add 28 for mar 1st--more involved
+                case m==1:
+                {    if year%4==0 { count+=29;
+                    }else {count+=28;}
+                }
+                //add 31 for april 1
+                case m==2:
+                    count+=31;
+                //add 30 for may 1
+                case m==3:
+                    count+=30;
+                //add 31 for june 1
+                case m==4:
+                    count+=31;
+                //add 30 for july 1
+                case m==5:
+                    count+=30;
+                //add 31 for august 1
+                case m==6:
+                    count+=31;
+                //add 31 for sept 1
+                case m==7:
+                    count+=31;
+                //add 30 fir oct 1
+                case m==8:
+                    count+=30;
+                //add 31 for nov 1
+                case m==9:
+                    count+=31;
+                //add 30 for dec 1
+                case m==10:
+                    count+=30;
+                //add 31 for jan 1
+                case m==11:
+                    count+=31;
+            }
+            
+            month=(month+1)%12;
+            year=year+month/12;
+         }
+     fmt.Println(ans)
+}
