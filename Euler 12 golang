@@ -1,0 +1,48 @@
+package main
+
+import "fmt"
+import "math"
+//import vector "container/vector"
+//euler 12
+func MySqrt(a int) int {
+        var x float64=float64(a)
+        z:=1.0
+        min_delta := 0.00000000001
+        delta := 1.0
+        var i int = 0
+        for ; math.Abs(delta) > min_delta ; i++{
+                delta = (z*z - x)/(2*z)
+                //fmt.Println(z,delta)
+                z = z - delta
+        }
+        fmt.Println("iterations: ", i)
+        return int(z)
+}
+func main() {
+
+
+//set up vector. 
+	var v[] int= make([]int, 1)
+	
+//set up num of factors
+	var numfact=0;
+//for each number find triangle number
+        var i,j, k int
+	for i=1;numfact<500;i++{
+	
+		var trinum int=0;
+		numfact=0;
+		
+		for j=1;j<=i;j++{
+		
+			trinum=trinum+j;
+		}
+		v=append(v,trinum);
+		//	find factors for each triangle number
+		for k=1;k<MySqrt(trinum);k++{
+			if trinum%k==0 { numfact++;}
+		}
+	}
+//cout vector.first [0]
+	fmt.Println (v[0])
+}
