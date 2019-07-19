@@ -19,11 +19,14 @@ public class MyClass{
         
          BigInteger ans=new BigInteger ("0");
          int test;
+         // get all amicable numbers under 10000 and sum them up
          for (int i=4;i<10000;i++)
          {
              
+             //test and i to see if they are amicable
              test=sumDivisors(divisors(i));
-             if (i==sumDivisors(divisors(test)) &&i<test ) ans.add(BigInteger.valueOf(i));
+             //if they are
+             if (i==sumDivisors(divisors(test)) /* getting all not just the smaller one of the pair &&i<test */) ans.add(BigInteger.valueOf(i));
          }
         System.out.println(ans.toString());
 	
